@@ -1,0 +1,41 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+
+local Window = Library.CreateLib("Private", "DarkTheme")
+
+local Tab1 = Window:NewTab("Character")
+
+local Section1 = Tab1:NewSection("Scripts")
+
+Section1:NewToggle("Hacker Boi No-Slow (Non-legit)", "private", function(state)
+    if state then
+        getgenv().speed = true
+
+        while wait() do
+            if getgenv().speed == true then
+                game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 90
+            end
+        end
+    else
+        getgenv().speed = false
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
+    end
+end)
+
+Section1:NewToggle("No-Slow (Legit)", "ToggleInfo", function(state)
+    if state then
+    getgenv().speed2 = true
+
+    while wait() do
+        if getgenv().speed2 == true then
+            game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
+        end
+    end
+    else
+        getgenv().speed2 = false
+   end 
+end)
+
+Section1:NewKeybind("ToggleUI", "KeybindInfo", Enum.KeyCode.V, function()
+	Library:ToggleUI()
+end)
+
